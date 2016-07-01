@@ -4,10 +4,10 @@ angular.module('starter.controllers', [])
   var vm = this
   Products.get().then(function(results){
     vm.products = results.data;
-    console.log(vm.products[0]);
-    vm.title = vm.products[0].ItemAttributes[0].Title[0];
+    console.log(vm.products[0].MediumImage[0].URL[0]);
+    vm.title = vm.products[1].ItemAttributes[0].Title[0];
     vm.price = 'N/A'
-    vm.image = vm.products[0].TinyImage[0].URL[0];
+    vm.image = vm.products[1].TinyImage[0].URL[0];
   })
 
 })

@@ -1,9 +1,9 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
 <ion-slides>
-  <ion-slide>
-    <img ng-src={{vm.products[0].LargeImage[0].URL[0]}} alt="">
-    <p>{{vm.title}}</p>
+  <ion-slide ng-repeat="product in vm.products"  on-swipe-left='console.log("swiper no swiping")'>
+    <img ng-src={{product.LargeImage[0].URL[0]}} alt="">
+    <p>{{product.ItemAttributes[0].Title[0]}}</p>
     <p>{{vm.price}}</p>
   </ion-slide>
 </ion-slides>
