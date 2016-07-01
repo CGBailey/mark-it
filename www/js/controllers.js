@@ -1,8 +1,14 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, Products) {
-  $scope.products = Products.get()
-
+  var vm = this
+  Products.get().then(function(results){
+    vm.products = results.data;
+    console.log(vm.products[0]);
+    vm.title = vm.products[0].ItemAttributes[0].Title[0];
+    vm.price = 'N/A'
+    vm.image = vm.products[0].TinyImage[0].URL[0];
+  })
 
 })
 

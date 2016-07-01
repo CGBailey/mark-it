@@ -2,9 +2,9 @@
   <ion-content class="padding">
 <ion-slides>
   <ion-slide>
-    <img src="http://placekitten.com/320/420" alt="">
-    <p>game name</p>
-    <p>price</p>
+    <img ng-src={{vm.products[0].LargeImage[0].URL[0]}} alt="">
+    <p>{{vm.title}}</p>
+    <p>{{vm.price}}</p>
   </ion-slide>
 </ion-slides>
   </ion-content>
