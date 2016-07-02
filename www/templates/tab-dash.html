@@ -1,17 +1,17 @@
 <ion-view view-title="Mark-it">
   <ion-content class="padding">
-<ion-slides ng-repeat="product in vm.products">
-  <ion-slide>
+<ion-slides options="options" slider="data.slider">
+  <ion-slide-page ng-repeat="product in vm.products" >
     <ion-card>
-      <img ng-src={{product.LargeImage[0].URL[0]}} alt="">
       <ion-card-content>
+        <img ng-src={{product.LargeImage[0].URL[0]}}>
         <ion-card-title>
           {{product.ItemAttributes[0].Title[0]}}
         </ion-card-title>
         <p>{{vm.price}}</p>
       </ion-card-content>
     </ion-card>
-  </ion-slide>
+  </ion-slide-page>
 </ion-slides>
   </ion-content>
 </ion-view>

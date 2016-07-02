@@ -2,12 +2,28 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, Products) {
   var vm = this
+  $scope.options = {
+  loop: false,
+  effect: 'fade',
+  speed: 500,
+}
+
+$scope.$on("$ionicSlides.sliderInitialized", function(event, data){
+  // data.slider is the instance of Swiper
+  $scope.slider = data.slider;
+});
+
+
+$scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
+  // note: the indexes are 0-based
+  $scope.activeIndex = data.activeIndex;
+  $scope.previousIndex = data.previousIndex;
+})
   Products.get().then(function(results){
     vm.products = results.data;
-    console.log(vm.products[0].MediumImage[0].URL[0]);
-    vm.title = vm.products[1].ItemAttributes[0].Title[0];
+    vm.title = vm.products[0].ItemAttributes[0].Title[0];
     vm.price = 'N/A'
-    vm.image = vm.products[1].TinyImage[0].URL[0];
+    vm.image = vm.products[0].TinyImage[0].URL[0];
   })
 })
 
