@@ -9,7 +9,6 @@ angular.module('starter.controllers', [])
     vm.price = 'N/A'
     vm.image = vm.products[1].TinyImage[0].URL[0];
   })
-
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
