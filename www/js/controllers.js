@@ -36,16 +36,18 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
     }
   }
 }).controller('CardsCtrl', function($scope, Products) {
-  var cardTypes = [];
+  var cardPool = [];
   Products.get().then(function(results){
-    cardTypes = results.data;
+    cardPool = results.data;
     for(var i = 0; i < 10; i++) $scope.addCard();
   })
   $scope.cards = [];
 
   $scope.addCard = function(i) {
-    var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+    var foo = Math.floor(Math.random() * cardPool.length)
+    var newCard = cardPool[foo];
     newCard.id = Math.random();
+    cardPool.splice(foo, 1)
     $scope.cards.push(angular.extend({}, newCard));
   }
 
