@@ -37,7 +37,7 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
   }
 }).controller('CardsCtrl', function($scope, Products) {
   var cardPool = [];
-  Products.get().then(function(results){
+  Products.more().then(function(results){
     cardPool = results.data;
     for(var i = 0; i < 10; i++) $scope.addCard();
   })
@@ -51,6 +51,13 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
     $scope.cards.push(angular.extend({}, newCard));
   }
 
+  $scope.addMore = function(i) {
+    var foo = Math.floor(Math.random() * cardPool.length)
+    var newCard = cardPool[foo];
+    newCard.id = Math.random() + $scope.cards.length;
+    cardPool.splice(foo, 1)
+    $scope.cards.push(angular.extend({}, newCard));
+  }
 
   $scope.cardSwipedLeft = function(index) {
     console.log('Left swipe');
@@ -63,6 +70,12 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
   $scope.cardDestroyed = function(index) {
     $scope.cards.splice(index, 1);
     console.log('Card removed');
+    if ($scope.cards.length <= 0) {
+      Products.more().then(function(results){
+        cardPool = results.data;
+        for(var i = 0; i < 10; i++) $scope.addCard();
+      })
+    }
   }
 })
 .controller('ChatsCtrl', function($scope, Chats) {
