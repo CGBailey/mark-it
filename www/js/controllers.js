@@ -39,7 +39,7 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
   var cardTypes = [];
   Products.get().then(function(results){
     cardTypes = results.data;
-    for(var i = 0; i < 3; i++) $scope.addCard();
+    for(var i = 0; i < 10; i++) $scope.addCard();
   })
   $scope.cards = [];
 
@@ -47,7 +47,6 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
     var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
     newCard.id = Math.random();
     $scope.cards.push(angular.extend({}, newCard));
-    console.log('Cards', $scope.cards[0].SmallImage[0].URL[0]);
   }
 
 
