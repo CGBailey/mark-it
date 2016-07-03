@@ -26,7 +26,44 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
     vm.image = vm.products[0].TinyImage[0].URL[0];
   })
 })
+.directive('noScroll', function() {
+  return {
+    restrict: 'A',
+    link: function($scope, $element, $attr) {
+      $element.on('touchmove', function(e) {
+        e.preventDefault();
+      });
+    }
+  }
+}).controller('CardsCtrl', function($scope, Products) {
+  var cardTypes = [];
+  Products.get().then(function(results){
+    cardTypes = results.data;
+    for(var i = 0; i < 3; i++) $scope.addCard();
+  })
+  $scope.cards = [];
 
+  $scope.addCard = function(i) {
+    var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+    newCard.id = Math.random();
+    $scope.cards.push(angular.extend({}, newCard));
+    console.log('Cards', $scope.cards[0].SmallImage[0].URL[0]);
+  }
+
+
+  $scope.cardSwipedLeft = function(index) {
+    console.log('Left swipe');
+  }
+
+  $scope.cardSwipedRight = function(index) {
+    console.log('Right swipe');
+  }
+
+  $scope.cardDestroyed = function(index) {
+    $scope.cards.splice(index, 1);
+    console.log('Card removed');
+  }
+})
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
