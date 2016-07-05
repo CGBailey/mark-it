@@ -7,6 +7,9 @@ angular.module('starter.services', [])
     },
     more: function() {
       return $http.get('https://conradbaileycapstone.herokuapp.com/api/v0.2/more')
+    },
+    detail: function() {
+      
     }
   }
 });

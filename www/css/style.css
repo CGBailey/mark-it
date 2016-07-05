@@ -32,6 +32,11 @@ td-card img {
     border-radius: 6px;
 }
 
+img {
+    height: 420px;
+    width: 100%;
+    border-radius: 6px;
+}
 /* Overlay styling*/
 
 .overlayBox {

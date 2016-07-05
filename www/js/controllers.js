@@ -93,7 +93,7 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+.controller('CardDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
 

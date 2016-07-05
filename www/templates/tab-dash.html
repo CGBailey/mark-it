@@ -7,7 +7,7 @@
             <td-cards>
                 <td-card id="td-card" ng-repeat="card in cards" on-destroy="cardDestroyed($index)"
                 on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)"
-                on-partial-swipe="cardPartialSwipe(amt)">
+                on-partial-swipe="cardPartialSwipe(amt)" ng-href="#/tab/cards/{{card.id}}">
                     <div class="image">
                         <div class="no-text overlayBox"><div class="noBox boxed">nah</div></div>
                         <img ng-src="{{card.LargeImage[0].URL[0]}}">
