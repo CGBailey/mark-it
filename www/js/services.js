@@ -1,6 +1,7 @@
 angular.module('starter.services', [])
 
 .factory('Products', function($http) {
+  var viewing = {}
   return {
     get: function() {
       return $http.get('https://conradbaileycapstone.herokuapp.com/api/v0.2');
@@ -8,8 +9,13 @@ angular.module('starter.services', [])
     more: function() {
       return $http.get('https://conradbaileycapstone.herokuapp.com/api/v0.2/more')
     },
-    detail: function() {
-      
+    setDetail: function(card) {
+      viewing = card
+    
+    },
+    getDetail: function() {
+      return viewing
     }
+
   }
 });

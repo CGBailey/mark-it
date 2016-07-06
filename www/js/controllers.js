@@ -37,12 +37,16 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
   }
 }).controller('CardsCtrl', function($scope, Products) {
   var cardPool = [];
+  $scope.currentCard = Products.getDetail();
   Products.more().then(function(results){
     cardPool = results.data;
     for(var i = 0; i < 10; i++) $scope.addCard();
   })
   $scope.cards = [];
-
+  $scope.stuff = function(){
+    $scope.currentCard = $scope.cards[$scope.cards.length - 1]
+    Products.setDetail($scope.currentCard)
+  }
   $scope.addCard = function(i) {
     var foo = Math.floor(Math.random() * cardPool.length)
     var newCard = cardPool[foo];
@@ -68,8 +72,8 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
   }
 
   $scope.cardDestroyed = function(index) {
-    $scope.cards.splice(index, 1);
-    console.log('Card removed');
+    $scope.currentCard = {};
+    $scope.cards.splice($scope.cards.length -1, 1);
     if ($scope.cards.length <= 0) {
       Products.more().then(function(results){
         cardPool = results.data;
@@ -87,14 +91,14 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+  // $scope.chats = Chats.all();
+  // $scope.remove = function(chat) {
+  //   Chats.remove(chat);
+  // };
 })
 
-.controller('CardDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('CardDetailCtrl', function($scope, $stateParams, Products) {
+
 })
 
 .controller('AccountCtrl', function($scope) {
