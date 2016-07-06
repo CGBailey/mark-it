@@ -14,12 +14,15 @@ angular.module('starter.services', [])
     },
     getDetail: function() {
       return viewing
-    }
+    },
     swipeRight: function(product) {
       $http.post('https://conradbaileycapstone.herokuapp.com/api/v0.2/right', {product_name: product, })
-    }
-    swipeLeft: function() {
-
+    },
+    swipeLeft: function(product) {
+      $http.post('https://conradbaileycapstone.herokuapp.com/api/v0.2/left', {product_name: product, })
+    },
+    swipes: function(product) {
+      return $http.get('https://conradbaileycapstone.herokuapp.com/api/v0.2/swipes')
     }
   }
 });
