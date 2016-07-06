@@ -23,6 +23,9 @@ angular.module('starter.services', [])
     },
     swipes: function(product) {
       return $http.get('https://conradbaileycapstone.herokuapp.com/api/v0.2/swipes')
+    },
+    swipedProducts: function() {
+      return $http.get('https://conradbaileycapstone.herokuapp.com/api/v0.2/stuff')
     }
   }
 });
