@@ -11,11 +11,15 @@ angular.module('starter.services', [])
     },
     setDetail: function(card) {
       viewing = card
-    
     },
     getDetail: function() {
       return viewing
     }
+    swipeRight: function(product) {
+      $http.post('https://conradbaileycapstone.herokuapp.com/api/v0.2/right', {product_name: product, })
+    }
+    swipeLeft: function() {
 
+    }
   }
 });
