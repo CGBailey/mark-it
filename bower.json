@@ -7,5 +7,9 @@
   "dependencies": {
     "ionic-ion-swipe-cards": "*",
     "ionic-ion-tinder-cards": "ionic-contrib-tinder-cards#*"
+  },
+  "resolutions": {
+    "angular": "1.5.3",
+    "angular-sanitize": "1.5.3"
   }
 }

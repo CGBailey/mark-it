@@ -43,6 +43,7 @@ $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
     for(var i = 0; i < 10; i++) $scope.addCard();
   })
   $scope.cards = [];
+  $scope.description = Products.getDescription()
   $scope.stuff = function(){
     $scope.currentCard = $scope.cards[$scope.cards.length - 1]
     Products.setDetail($scope.currentCard)

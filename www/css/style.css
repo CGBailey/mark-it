@@ -13,7 +13,7 @@ td-cards {
 
 td-card {
     position: absolute;
-    left: 49%;
+    left: 50%;
     margin: 80px 0 40px -150px;
     width: 90%;
     height: 85%;
@@ -26,9 +26,9 @@ td-card {
 
 .td-card .title {
   position: absolute;
-    height: 35%;
-    font-size: 18px;
-    padding: 15px;
+    height: 40%;
+    font-size: 16px;
+    padding: 10px;
     color: rgb(27, 27, 27);
     font-family: 'Roboto Condensed', sans-serif;
 }
@@ -39,14 +39,14 @@ td-card .image {
 }
 
 td-card img {
-    height: 420px;
+    height: 360px;
     width: 100%;
     border-radius: 6px;
 
 }
 
 img {
-    height: 420px;
+    height: 360px;
     width: 100%;
     border-radius: 6px;
 

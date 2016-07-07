@@ -11,7 +11,7 @@
       <p>
         {{currentCard.ItemAttributes[0].Title[0]}}
       </p>
-      <p>{{currentCard.EditorialReviews[0].EditorialReview[0].Content[0]}}</p>
+      <p ng-bind-html="description"></p>  
     </div>
 
   </ion-content>
